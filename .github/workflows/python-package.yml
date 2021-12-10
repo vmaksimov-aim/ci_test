@@ -28,7 +28,7 @@ jobs:
         pip install -r requirements.txt
     - name: Test with pytest
       run: |
-        run: pytest --import-mode=append tests/
+        python -m pytest --import-mode=append tests/
     - name: Linter verification
       run: |
         flake8 . --count
