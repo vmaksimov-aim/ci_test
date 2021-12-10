@@ -1,8 +1,6 @@
 from tornado.ioloop import IOLoop
 from tornado.web import Application
 
-from ci_test.common.constants import ApplicationConstants
-
 
 def create_app():
     return Application(
@@ -13,6 +11,7 @@ def create_app():
 
 if __name__ == '__main__':
     application = create_app()
-    application.listen(ApplicationConstants.PORT)
+    application.listen(5000)
+    print('a')
 
     IOLoop.current().start()
