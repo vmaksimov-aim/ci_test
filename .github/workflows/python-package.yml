@@ -32,4 +32,4 @@ jobs:
         python -m pytest
     - name: Linter verification
       run: |
-        flake8 . --count
+        flake8 . --count --diff
