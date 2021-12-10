@@ -4,8 +4,6 @@
 name: Python package
 
 on:
-  push:
-    branches: [ main, development ]
   pull_request:
     branches: [ main, development ]
 
@@ -32,5 +30,4 @@ jobs:
         pytest
     - name: Linter verification
       run: |
-        # stop the build if there are Python syntax errors or undefined names
         flake8 . --count
