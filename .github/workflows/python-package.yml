@@ -26,6 +26,8 @@ jobs:
       run: |
         pip install -r requirements.txt
     - name: Test with pytest
+      env:
+        PYTHONPATH: .
       run: |
         pytest
     - name: Linter verification
