@@ -32,7 +32,7 @@ jobs:
 
     runs-on: ubuntu-latest
     needs: changedfiles
-    if: ${{needs.changedfiles.outputs.ts}}
+    if: ${{needs.changedfiles.outputs.all}}
     strategy:
       fail-fast: false
       matrix:
@@ -54,4 +54,4 @@ jobs:
         python -m pytest
     - name: Linter verification
       run: |
-        flake8 ${{needs.changedfiles.outputs.ts}}
+        flake8 ${{needs.changedfiles.outputs.all}}
