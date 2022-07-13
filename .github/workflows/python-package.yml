@@ -8,35 +8,13 @@ on:
     branches: [ main, development ]
 
 jobs:
-  changedfiles:
-    runs-on: ubuntu-latest
-    # Map a step output to a job output
-    outputs:
-      all: ${{ steps.changes.outputs.all}}
-      ts: ${{ steps.changes.outputs.ts }}
-
-    steps:
-      # Make sure we have some code to diff.
-      - name: Checkout repository
-        uses: actions/checkout@v2
-        with:
-          fetch-depth: 0
-      - name: Get changed files
-        id: changes
-        # Set outputs using the command.
-        run: |
-          echo "::set-output name=all::$(git diff --name-only --diff-filter=ACMRT ${{ github.event.pull_request.base.sha }} ${{ github.sha }} | xargs)"
-          echo "::set-output name=ts::$(git diff --name-only --diff-filter=ACMRT ${{ github.event.pull_request.base.sha }} ${{ github.sha }} | grep .ts$ | xargs)"
 
   build:
-
     runs-on: ubuntu-latest
-    needs: changedfiles
-    if: ${{needs.changedfiles.outputs.all}}
     strategy:
       fail-fast: false
       matrix:
-        python-version: ["3.9"]
+        python-version: ["3.10"]
 
     steps:
     - uses: actions/checkout@v2
@@ -54,4 +32,4 @@ jobs:
         python -m pytest
     - name: Linter verification
       run: |
-        flake8 ${{needs.changedfiles.outputs.all}}
+        flake8
