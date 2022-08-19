@@ -1,9 +1,13 @@
 # Add 'repo' label to any root file changes
 Tests:
   - 'tests/*'
+  - 'tests/**/*'
 Features:
   - 'ci_test/features/*'
+  - 'ci_test/features/**/*'
 API:
   - 'ci_test/api/*'
+  - 'ci_test/api/**/*'
 Integration:
   - 'ci_test/integration/*'
+  - 'ci_test/integration/**/*'
