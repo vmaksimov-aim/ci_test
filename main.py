@@ -12,6 +12,8 @@ def create_app():
 if __name__ == '__main__':
     application = create_app()
     application.listen(5000)
+
+    print('a')
     print('a')
 
     IOLoop.current().start()
