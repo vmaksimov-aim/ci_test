@@ -1,12 +1,14 @@
 import pytest
 
-from project.integration import service
+
+async def af(aaa, bbbb):
+    return aaa + bbbb
 
 
 @pytest.mark.asyncio
 @pytest.mark.parametrize(
-    'a, b, c',
+    'aaa, bbbb, ccc',
     [(1, 1, 2), (2, 2, 4)],
 )
-def test_get_estimated_driving_range(a, b, c):
-    assert c == service.a(a, b)
+async def test_get_estimated_driving_range(aaa, bbbb, ccc):
+    assert ccc == await af(aaa, bbbb)
