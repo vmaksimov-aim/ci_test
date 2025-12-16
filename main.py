@@ -9,6 +9,8 @@ def create_app():
     )
 
 
+PORT = 5000
+
 if __name__ == '__main__':
     application = create_app()
     application.listen(5000)
