@@ -13,7 +13,9 @@ PORT = 5000
 
 if __name__ == '__main__':
     application = create_app()
-    application.listen(PORT)
+    application.listen(5000)
+
+    print('a')
     print('a')
 
     IOLoop.current().start()
